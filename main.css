@@ -1,0 +1,81 @@
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.calculator-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.25fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas: "head head head head"
+                         "screen screen screen screen"
+                         "seven eight nine divide"
+                         "four five six multiply"
+                         "one two three subtract"
+                         "zero period equals add";
+    background-color: rgb(80, 80, 80);
+    width: 15rem;
+    height:25rem;
+    padding: 5px;
+}
+
+.calc-button {
+    background-color: rgb(170, 170, 170);
+    border-style: solid;
+    border-color: black;
+    border-radius: 3px;
+    border-width: 0.5px;
+    color: white;
+    margin: 8px 2px;
+}
+
+.calc-button:hover {
+    background-color: rgba(170,170,170,0.5)
+}
+
+.operator {
+    background-color: rgb(81, 92, 88);
+}
+
+.operator:hover {
+    background-color: rgb(46, 56, 53);
+}
+
+#equals {
+    background-color: rgb(31, 92, 69) ;
+}
+
+#equals:hover {
+    background-color: rgb(22, 66, 49) ;;
+}
+
+.screen-body {
+    display: flex;
+    background-color: rgb(231, 231, 231);
+    grid-area: screen;
+
+}
+
+.bordered {
+    border-color:black;
+    border-style: solid;
+    border-width: 0.1em;
+}
+
+.calc-header {
+    display: flex;
+    font-size: 0.8rem;
+    font-family: monospace;
+    justify-content: center;
+    background: rgb(117, 117, 117);
+    text-align: center;
+    color: white;
+    grid-area: head;
+
+}
+
+
