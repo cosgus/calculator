@@ -22,6 +22,12 @@ function clearScreen() {
     screenOutputContent.innerText = "";
 }
 
+function backspace() {
+    const screenInputContent = getScreenInputContent();
+    const newContent = screenInputContent.innerText.slice(0,-1);
+    screenInputContent.innerText = newContent;
+}
+
 function getExpressionParts(expression) {
     expression = expression.replace(/\+/g,',+,');
     expression = expression.replace(/-/g,',-,');
@@ -105,7 +111,7 @@ function createButtonListeners() {
             buttons[i].addEventListener('click', clearScreen);
         }
         else if (buttons[i].id === 'clear') {
-            buttons[i].addEventListener('click', clearScreen);
+            buttons[i].addEventListener('click', backspace);
         }
         else {
             buttons[i].addEventListener('click', updateScreenContent);
@@ -131,9 +137,14 @@ function updateScreenContent(e) {
     const expression = getScreenInputContent().innerText;
     const parts = getExpressionParts(expression);
     const lastPart = parts[parts.length-1]
+    const operators = ['%','+','-','/','x']
 
     if (e.target.classList.contains("operator")){
-        if (e.target.innerText != screenContent.innerText.charAt(screenContent.innerText)) {
+        console.log('here')
+
+        const lastChar = screenContent.innerText.charAt(screenContent.innerText.length-1)
+        console.log(lastChar)
+        if (!(operators.includes(lastChar))) {
             screenContent.innerText += `${e.target.innerText}`
         }
     }
