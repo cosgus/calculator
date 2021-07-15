@@ -1,26 +1,37 @@
+html {
+    height: 100%;
+}
+body {
+    display: flex;
+    background-color: rgb(192, 204, 196);
+    margin: 0;
+    min-height: 100%;
+}
 .main-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     width: 80%;
-    margin: 0 auto;
+    margin: 7% auto auto auto;
 }
 
 .calculator-body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 0.25fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 0.25fr 1.2fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas: "head head head head"
                          "screen screen screen screen"
-                         "seven eight nine divide"
-                         "four five six multiply"
-                         "one two three subtract"
-                         "zero period equals add";
+                         "ac clear percent divide"
+                         "seven eight nine add"
+                         "four five six subtract"
+                         "one two three multiply"
+                         "zero period equals equals";
     background-color: rgb(80, 80, 80);
     width: 15rem;
     height:25rem;
-    padding: 5px;
+    padding: 8px;
+    border-radius: 3px;
 }
 
 .calc-button {
@@ -30,7 +41,9 @@
     border-radius: 3px;
     border-width: 0.5px;
     color: white;
-    margin: 8px 2px;
+    margin: 4px 2px;
+    font-size: 0.85rem;
+    /* -webkit-text-stroke: 0.5px black;  */
 }
 
 .calc-button:hover {
@@ -39,6 +52,7 @@
 
 .operator {
     background-color: rgb(81, 92, 88);
+    /* font-size: 1.2rem; */
 }
 
 .operator:hover {
@@ -50,20 +64,45 @@
 }
 
 #equals:hover {
-    background-color: rgb(22, 66, 49) ;;
+    background-color: rgb(22, 66, 49) ;
+    border-color: rgb(46, 46, 46);
 }
 
 .screen-body {
     display: flex;
-    background-color: rgb(231, 231, 231);
+    background-color: rgb(231, 226, 226);
     grid-area: screen;
+    justify-content: stretch;
+    align-items: stretch;
+    flex-direction: column;
+    margin-bottom: 0.25em;
+}
 
+.screen-content {
+    display: grid;
+    font-family: 'Calculator', 'Raleway';
+    margin: 0.1rem 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: rgb(51, 51, 51);
+    height: 45%;
+    text-align: right;
+    align-items: center;
+}
+
+#screen-input {
+    font-size: 1.5rem;
+}
+
+#screen-output {
+    color: rgba(51, 51, 51,0.8);
 }
 
 .bordered {
     border-color:black;
     border-style: solid;
     border-width: 0.1em;
+
 }
 
 .calc-header {
@@ -76,6 +115,39 @@
     color: white;
     grid-area: head;
 
+}
+
+.aux {
+    background-color: rgb(141, 117, 71);
+}
+
+.aux:hover {
+    background-color: rgb(117, 102, 76);
+}
+
+h1 {
+    font-size: 2rem;
+    font-family: 'Calculator';
+    margin: 0px;
+}
+
+p {
+    font-family: 'Raleway';
+    font-size: 0.9rem;
+}
+
+.inner-title {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 2rem;
+}
+
+
+
+@font-face {
+    font-family: 'Calculator';
+    src: url('./fonts/digital-7.regular.ttf');
 }
 
 

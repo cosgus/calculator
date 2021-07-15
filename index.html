@@ -6,16 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOP Calculator</title>
     <link rel="stylesheet" href="main.css">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet"> 
 </head>
 <body>
     <div class="main-content">
+        <div class="inner-title">
+            <h1>Calculator</h1>
+            <p>Created by Gustavo Costa for The Odin Project</p>
+        </div>
         <div class="calculator-body bordered">
             <div class='calc-header bordered'></div>
             <div class='screen-body bordered'>
-                
-
+                <div class="screen-content" id="screen-input">
+                    
+                </div>
+                <div class="screen-content" id="screen-output">
+                    
+                </div>
             </div>
+            <button class='calc-button aux' id='ac'>AC</button>
+            <button class='calc-button aux' id='clear'>C</button>
             <button class='calc-button' id='one'>1</button>
             <button class='calc-button' id='two'>2</button>
             <button class='calc-button' id='three'>3</button>
@@ -28,8 +40,9 @@
             <button class='calc-button' id='zero'>0</button>
             <button class='calc-button operator' id='add'>+</button>
             <button class='calc-button operator' id='subtract'>-</button>
-            <button class='calc-button operator' id='divide'>/</button>
+            <button class='calc-button operator' id='divide'>&#247;</button>
             <button class='calc-button operator' id='multiply'>x</button>
+            <button class='calc-button operator' id='percent'>%</button>
             <button class='calc-button' id='period'>.</button>
             <button class='calc-button' id='equals'>=</button>
         </div>
