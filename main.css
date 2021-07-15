@@ -128,12 +128,12 @@ body {
 h1 {
     font-size: 2rem;
     font-family: 'Calculator';
-    margin: 0px;
+    margin: 2px;
 }
 
 p {
     font-family: 'Raleway';
-    font-size: 0.9rem;
+    font-size: 0.8rem;
 }
 
 .inner-title {

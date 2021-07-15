@@ -22,16 +22,12 @@ function clearScreen() {
     screenOutputContent.innerText = "";
 }
 
-function calculate(expression) {
-    console.log(` h ${expression}`);
-    return expression;
-}
-
 function getExpressionParts(expression) {
     expression = expression.replace(/\+/g,',+,');
     expression = expression.replace(/-/g,',-,');
-    expression = expression.replace(/&#247;/g,',/,');
+    expression = expression.replace(/÷/g,',÷,');
     expression = expression.replace(/x/g,',x,');
+    expression = expression.replace(/%/g,',%,');
     let parts = expression.split(',');
     return parts;
 }
@@ -42,11 +38,13 @@ function operate(e) {
     const expression = getScreenInputContent().innerText;
     let parts = getExpressionParts(expression);
 
-
+    console.log(`starting with ${parts}`)
+    
     // The following loop and switch reduce the expression by calculating
     // each section untill the array is reduced to one element - the final answer
 
     let reducedExpression = [];
+
     for (let i = 0; i < parts.length; i++ ) {
         switch (parts[i]) {
             case 'x':
@@ -56,7 +54,7 @@ function operate(e) {
                 reducedExpression.push(prevNum * nextNum)
                 i++;
                 break;
-            case '/':
+            case '÷':
                 prevNum = Number(reducedExpression[reducedExpression.length-1])
                 nextNum = Number(parts[i+1])
                 reducedExpression.pop()
@@ -76,6 +74,13 @@ function operate(e) {
                 nextNum = Number(parts[i+1])
                 reducedExpression.pop()
                 reducedExpression.push(prevNum + nextNum)
+                i++;
+                break;
+            case '%':
+                prevNum = Number(reducedExpression[reducedExpression.length-1])
+                nextNum = Number(parts[i+1])
+                reducedExpression.pop()
+                reducedExpression.push(prevNum % nextNum)
                 i++;
                 break;
             default:
@@ -133,7 +138,6 @@ function updateScreenContent(e) {
         }
     }
     else if (!(e.target.innerText === '.' && lastPart.includes('.'))) {
-        console.log('here')
         screenContent.innerText += e.target.innerText
     } 
 
